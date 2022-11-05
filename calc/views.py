@@ -11,13 +11,11 @@ def operate(request):
     y = request.data["y"]
 
     if operation_act not in operations:
-        invalid = 'Invalid operation type'
-    if operation_act not in operations:
-        invalid = 'Invalid operation type. Options: <addition | subtraction | multiplication>'
+        invalid = 'Use: <addition | subtraction | multiplication>'
     if type(x) is not int:
-        invalid = 'x operand must be an integer'
+        invalid = 'x must be an integer'
     if type(y) is not int:
-        invalid = 'y operand must be an iteger'
+        invalid = 'y must be an integer'
 
     if invalid:
         return JsonResponse({'msg': invalid}, status=400)
